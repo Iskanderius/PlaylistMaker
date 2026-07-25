@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bigText">22sp</dimen>
+    <dimen name="smallText">16sp</dimen>
+    <dimen name="paddingHeader">16sp</dimen>
+    <dimen name="paddingUsual">16sp</dimen>
+    <dimen name="marginButton">16sp</dimen>
+    <dimen name="buttonRadius">16sp</dimen>
+</resources>

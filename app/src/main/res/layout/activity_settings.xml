@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings"
+    tools:context=".SettingsActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3772E7"
+    android:orientation="vertical"
+    android:padding="@dimen/paddingHeader">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:id="@+id/backSettings">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/arrow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:gravity="center_vertical"
+                android:text="@string/settings"
+                android:textColor="@color/black"
+                android:textSize="@dimen/bigText"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:paddingTop="@dimen/paddingHeader">
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:text="@string/blackTheme"
+                android:gravity="center_vertical|start"
+                android:textSize="@dimen/smallText"
+                android:paddingLeft="@dimen/paddingUsual"
+                android:paddingRight="5sp"
+                />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/share"
+            android:textColor="@color/black"
+            android:textSize="@dimen/smallText"
+            android:paddingLeft="@dimen/paddingUsual"
+            android:paddingRight="@dimen/paddingUsual"
+            app:drawableEndCompat = "@drawable/share"
+            android:layout_weight="1"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/writeMessage"
+            android:textColor="@color/black"
+            android:textSize="@dimen/smallText"
+            android:paddingLeft="@dimen/paddingUsual"
+            android:paddingRight="@dimen/paddingUsual"
+            app:drawableEndCompat = "@drawable/man"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/readDocument"
+            android:textColor="@color/black"
+            android:textSize="@dimen/smallText"
+            android:paddingLeft="@dimen/paddingUsual"
+            android:paddingRight="@dimen/paddingUsual"
+            app:drawableEndCompat = "@drawable/more"
+            android:layout_weight="1"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="@color/white"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</LinearLayout>
