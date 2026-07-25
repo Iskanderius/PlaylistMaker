@@ -11,19 +11,22 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="start"
-        android:text="Playlist maker"
+        android:text="@string/Header"
         android:textColor="@color/white"
-        android:layout_weight="1"
-        android:textSize="@dimen/bigText" />
+        android:layout_weight="1.5"
+        android:textSize="@dimen/bigText"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="14sp"
+        />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginEnd="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/marginButton"
+        android:layout_marginEnd="@dimen/marginButton"
         android:layout_weight="5"
         android:backgroundTint="@color/white"
         android:letterSpacing="0"
@@ -31,26 +34,28 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="@dimen/bigText"
-        app:cornerRadius="16dp"
+        app:cornerRadius="@dimen/buttonRadius"
         app:icon="@drawable/loupe"
         app:iconGravity="textStart"
         app:iconPadding="@dimen/paddingUsual"
         app:iconTint="@color/black"
         android:id="@+id/button1"
 
+
         />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/marginButton"
+        android:layout_marginEnd="@dimen/marginButton"
         android:layout_weight="5"
         android:backgroundTint="@color/white"
         android:text="@string/media"
         android:textAllCaps="false"
         android:textColor="#1A1B22"
         android:textSize="@dimen/bigText"
-        app:cornerRadius="16dp"
+        app:cornerRadius="@dimen/buttonRadius"
         app:icon="@drawable/media"
         app:iconGravity="textStart"
         app:iconPadding="@dimen/paddingUsual"
@@ -62,15 +67,16 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/marginButton"
+        android:layout_marginEnd="@dimen/marginButton"
         android:layout_weight="5"
         android:backgroundTint="#ffffff"
         android:text="@string/settings"
         android:textAllCaps="false"
         android:textColor="#1A1B22"
         android:textSize="@dimen/bigText"
-        app:cornerRadius="16dp"
+        app:cornerRadius="@dimen/buttonRadius"
         app:icon="@drawable/setting"
         app:iconGravity="textStart"
         app:iconPadding="@dimen/paddingUsual"

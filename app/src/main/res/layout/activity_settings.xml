@@ -62,119 +62,61 @@
         android:background="@color/white"
         android:paddingTop="@dimen/paddingHeader">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/blackTheme"
-                android:textColor="@color/black"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
 
-            <Switch
-                android:id="@+id/mySwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:scaleType="centerInside"
                 android:layout_gravity="end"
-
+                android:layout_weight="1"
+                android:text="@string/blackTheme"
+                android:gravity="center_vertical|start"
+                android:textSize="@dimen/smallText"
+                android:paddingLeft="@dimen/paddingUsual"
+                android:paddingRight="5sp"
                 />
 
 
 
-        </LinearLayout>
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/share"
+            android:textColor="@color/black"
+            android:textSize="@dimen/smallText"
+            android:paddingLeft="@dimen/paddingUsual"
+            android:paddingRight="@dimen/paddingUsual"
+            app:drawableEndCompat = "@drawable/share"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/share"
-                android:textColor="@color/black"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/share"
-                android:layout_gravity="end"
-                android:paddingRight="@dimen/paddingUsual"/>
-        </LinearLayout>
-        <LinearLayout
+
+            />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/writeMessage"
+            android:textColor="@color/black"
+            android:textSize="@dimen/smallText"
+            android:paddingLeft="@dimen/paddingUsual"
+            android:paddingRight="@dimen/paddingUsual"
+            app:drawableEndCompat = "@drawable/man"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/writeMessage"
-                android:textColor="@color/black"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/man"
-                android:layout_gravity="end"
-                android:paddingRight="@dimen/paddingUsual"/>
-        </LinearLayout>
-        <LinearLayout
+            />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/readDocument"
+            android:textColor="@color/black"
+            android:textSize="@dimen/smallText"
+            android:paddingLeft="@dimen/paddingUsual"
+            android:paddingRight="@dimen/paddingUsual"
+            app:drawableEndCompat = "@drawable/more"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/readDocument"
-                android:textColor="@color/black"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/more"
-                android:layout_gravity="end"
-                android:paddingRight="@dimen/paddingUsual"/>
-        </LinearLayout>
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

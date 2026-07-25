@@ -21,8 +21,7 @@ class SettingsActivity : AppCompatActivity() {
         val backSettings = findViewById<android.widget.LinearLayout>(R.id.backSettings)
 
         backSettings.setOnClickListener {
-            val mainIntent = Intent(this, MainActivity::class.java)
-            startActivity(mainIntent)
+            finish()
         }
 
     }
