@@ -49,18 +49,21 @@
             android:text="@string/share"
             app:drawableEndCompat = "@drawable/share"
             android:layout_weight="1"
+            android:id="@+id/shareApp"
             />
         <TextView
             style="@style/TextStyleUsual"
             android:text="@string/writeMessage"
             app:drawableEndCompat = "@drawable/man"
             android:layout_weight="1"
+            android:id="@+id/WriteToSupport"
             />
         <TextView
             style="@style/TextStyleUsual"
             android:text="@string/readDocument"
             app:drawableEndCompat = "@drawable/more"
             android:layout_weight="1"
+            android:id="@+id/UserContract"
             />
 
         <LinearLayout
