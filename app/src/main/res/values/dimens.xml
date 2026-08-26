@@ -4,4 +4,6 @@
     <dimen name="smallText">16sp</dimen>
     <dimen name="paddingHeader">16sp</dimen>
     <dimen name="paddingUsual">16sp</dimen>
+    <dimen name="marginButton">16sp</dimen>
+    <dimen name="buttonRadius">16sp</dimen>
 </resources>
