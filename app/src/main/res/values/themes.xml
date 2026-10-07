@@ -4,22 +4,24 @@
     <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
 
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/YpBlue</item>
-        <item name="colorPrimaryVariant">@color/Turquoise</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <!--<item name="colorPrimary">@color/YpBlue</item>--><!-- Фон главной активити -->
+        <item name="colorPrimaryVariant">@color/YPLightGray</item><!-- Фон строки поиск активити -->
+        <!--<item name="colorOnPrimary">@color/YpBlack</item>--><!-- main PlayList maker -->
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/white</item>
-        <item name="colorSecondaryVariant">@color/TurquoiseChalk</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/YpWhite</item><!-- Фон смежных активити -->
+        <item name="colorSecondaryVariant">@color/YPTextGray</item><!-- Под цвет иконок -->
+        <item name="colorOnSecondary">@color/YPTextGray</item><!-- Цвет текста в строке поиск-->
+
+        <item name="colorSurface">@color/YPLightGray</item>
+        <item name="colorOnSurface">@color/YPTextGray</item>
         <!-- Status bar color. -->
+        <item name="colorOnBackground">@color/YPTextGray</item>
+        <item name="colorOnError">@color/YPTextGray</item>
+        <item name="colorBackgroundFloating">@color/YPTextGray</item>
+        <item name="color">@color/YPTextGray</item>
 
 
-
-
-
-
-
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
 
     </style>

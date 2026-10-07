@@ -39,8 +39,10 @@ android {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.material)
 
-    }
+
+ }
 /*
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")

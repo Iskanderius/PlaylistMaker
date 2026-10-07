@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings"
     tools:context=".SettingsActivity"
-    style="@style/LinearLayoutStyleBackground">
+    style="@style/SecondMainLayoutStyleBackground">
 
     <LinearLayout
-        style="@style/LinearLayoutStyleForeground"
+        style="@style/UsualLinearLayoutStyle"
         android:layout_weight="10">
 
         <LinearLayout
-            style="@style/LinearLayoutStyleForeground"
+            style="@style/UsualLinearLayoutStyle"
             android:layout_weight="5"
             android:id="@+id/backSettings">
 
@@ -21,7 +21,7 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/LinearLayoutStyleForeground"
+            style="@style/UsualLinearLayoutStyle"
             android:layout_weight="1">
 
 
@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <LinearLayout
-        style="@style/LinearLayoutStyleForeground"
+        style="@style/UsualLinearLayoutStyle"
         android:orientation="vertical"
         android:layout_weight="1"
         android:paddingTop="@dimen/paddingHeader">
@@ -50,6 +50,7 @@
             app:drawableEndCompat = "@drawable/share"
             android:layout_weight="1"
             android:id="@+id/shareApp"
+            android:drawableTint="?attr/colorSecondaryVariant"
             />
         <TextView
             style="@style/TextStyleUsual"
@@ -57,6 +58,7 @@
             app:drawableEndCompat = "@drawable/man"
             android:layout_weight="1"
             android:id="@+id/WriteToSupport"
+            android:drawableTint="?attr/colorSecondaryVariant"
             />
         <TextView
             style="@style/TextStyleUsual"
@@ -64,10 +66,11 @@
             app:drawableEndCompat = "@drawable/more"
             android:layout_weight="1"
             android:id="@+id/UserContract"
+            android:drawableTint="?attr/colorSecondaryVariant"
             />
 
         <LinearLayout
-            style="@style/LinearLayoutStyleForeground"
+            style="@style/UsualLinearLayoutStyle"
             android:layout_height="0dp"
             android:layout_weight="5">
         </LinearLayout>
