@@ -4,187 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings"
     tools:context=".SettingsActivity"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#3772E7"
-    android:orientation="vertical"
-    android:padding="@dimen/paddingHeader">
+    style="@style/SecondMainLayoutStyleBackground">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10"
-        android:background="@color/white"
-        android:orientation="horizontal">
+        style="@style/UsualLinearLayoutStyle"
+        android:layout_weight="10">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/UsualLinearLayoutStyle"
             android:layout_weight="5"
-            android:background="@color/white"
-            android:orientation="horizontal"
             android:id="@+id/backSettings">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
+                style="@style/ImageViewStyle"
                 android:src="@drawable/arrow" />
-
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
+            style="@style/UsualLinearLayoutStyle"
+            android:layout_weight="1">
+
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/settings"
-                android:textColor="@color/black"
-                android:textSize="@dimen/bigText"
-                android:textStyle="bold"/>
+                style="@style/TextStyleTopic2"
+                android:text="@string/settings" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/UsualLinearLayoutStyle"
         android:orientation="vertical"
         android:layout_weight="1"
-        android:background="@color/white"
         android:paddingTop="@dimen/paddingHeader">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/SwitchCompatStyle"
+            android:text="@string/blackTheme"
+
+            />
+        <TextView
+            style="@style/TextStyleUsual"
+            android:text="@string/share"
+            app:drawableEndCompat = "@drawable/share"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/blackTheme"
-                android:textColor="@color/black"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <Switch
-                android:id="@+id/mySwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:layout_gravity="end"
-
-                />
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:id="@+id/shareApp"
+            android:drawableTint="?attr/colorSecondaryVariant"
+            />
+        <TextView
+            style="@style/TextStyleUsual"
+            android:text="@string/writeMessage"
+            app:drawableEndCompat = "@drawable/man"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/share"
-                android:textColor="@color/black"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/share"
-                android:layout_gravity="end"
-                android:paddingRight="@dimen/paddingUsual"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:id="@+id/WriteToSupport"
+            android:drawableTint="?attr/colorSecondaryVariant"
+            />
+        <TextView
+            style="@style/TextStyleUsual"
+            android:text="@string/readDocument"
+            app:drawableEndCompat = "@drawable/more"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/writeMessage"
-                android:textColor="@color/black"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/man"
-                android:layout_gravity="end"
-                android:paddingRight="@dimen/paddingUsual"/>
-        </LinearLayout>
+            android:id="@+id/UserContract"
+            android:drawableTint="?attr/colorSecondaryVariant"
+            />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            style="@style/UsualLinearLayoutStyle"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/readDocument"
-                android:textColor="@color/black"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/more"
-                android:layout_gravity="end"
-                android:paddingRight="@dimen/paddingUsual"/>
+            android:layout_weight="5">
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:background="@color/white"
-            android:orientation="horizontal">
-        </LinearLayout>
-
-
-
-
     </LinearLayout>
 </LinearLayout>

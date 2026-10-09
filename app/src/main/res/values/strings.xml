@@ -8,4 +8,6 @@
     <string name="share">Поделиться приложением</string>
     <string name="writeMessage">Написать в техподдержку</string>
     <string name="readDocument">Пользовательское приложение</string>
+    <string name="Header">Playlist maker</string>
+    <string name="input_hint">Поиск</string>
 </resources>
