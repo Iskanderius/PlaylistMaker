@@ -33,33 +33,33 @@ class SettingsActivity : AppCompatActivity() {
 
         shareApp.setOnClickListener {
 
-            val message = "https://practicum.yandex.ru/profile/android-developer/"
+            val message = getString(R.string.url1)
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "text/plain"
             shareIntent.putExtra(Intent.EXTRA_TEXT, message)
-            Intent.createChooser(shareIntent, "Поделиться ссылкой")
+            Intent.createChooser(shareIntent, getString(R.string.share_url))
             startActivity(shareIntent)
         }
 
 
 
         WriteToSupport.setOnClickListener {
-            val message = "Спасибо разработчикам и разработчицам за крутое приложение!"
-            val theme = "Сообщение разработчикам и разработчицам приложения Playlist Maker"
+            val message = getString(R.string.text1)
+            val theme = getString(R.string.text2)
             val WriteIntent = Intent(Intent.ACTION_SENDTO)
             WriteIntent.type = "text/plain"
             WriteIntent.data = Uri.parse("mailto:")
-            WriteIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("egortsev92@yandex.ru"))
+            WriteIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.email)))
             WriteIntent.putExtra(Intent.EXTRA_TEXT, message)
             WriteIntent.putExtra(Intent.EXTRA_SUBJECT, theme)
             startActivity(WriteIntent)
         }
 
-            UserContract.setOnClickListener {
-                val IntentContract = Intent(Intent.ACTION_VIEW)
-                IntentContract.data = Uri.parse("https://yandex.ru/legal/practicum_offer/ru/")
-                startActivity(IntentContract)
-            }
+        UserContract.setOnClickListener {
+            val IntentContract = Intent(Intent.ACTION_VIEW)
+            IntentContract.data = Uri.parse(getString(R.string.url2))
+            startActivity(IntentContract)
+        }
 
 
 

@@ -1,78 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextStyleTopic"><!-- используется main PlayListmaker -->
+    <style name="TextStyle"><!-- используется main PlayListmaker center_vertical|start -->
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:gravity">start</item>
-        <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:textSize">@dimen/bigText</item>
-        <item name="android:layout_marginStart">16sp</item>
-        <item name="android:layout_marginTop">14sp</item>
-        <item name="android:fontFamily">@font/ys_display_medium</item>
-    </style>
-
-    <style name="TextStyleTopic2">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:layout_height">@dimen/Null</item>
         <item name="android:gravity">center_vertical|start</item>
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
         <item name="android:textSize">@dimen/bigText</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:drawableTint">?attr/colorSecondaryVariant</item>
+        <item name="android:layout_marginStart">@dimen/marginUsual</item>
+        <item name="android:layout_marginEnd">@dimen/marginUsual</item>
+        paddingUsual
     </style>
 
-    <style name="TextStyleUsual">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:gravity">center_vertical|start</item>
-        <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:textSize">@dimen/smallText</item>
-        <item name="android:paddingLeft">@dimen/paddingUsual</item>
-        <item name="android:paddingRight">@dimen/paddingUsual</item>
-        <item name="android:fontFamily">@font/ys_display_medium</item>
-
-    </style>
-    <!-- используется main Кнопки нет themes-->
-    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <!-- <item name="android:textColor">@color/YpBlack</item>-->
-        <item name="android:layout_weight">5</item>
-        <item name="android:textSize">@dimen/bigText</item>
-        <item name="android:layout_marginStart">@dimen/marginButton</item>
-        <item name="android:layout_marginEnd">@dimen/marginButton</item>
-        <!-- <item name="android:backgroundTint">@color/YpWhite</item>-->
-        <item name="android:letterSpacing">0</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="iconGravity">textStart</item>
-        <item name="iconPadding">@dimen/paddingUsual</item>
-        <item name="iconTint">@color/YpBlack</item>
-    </style>
-
-    <style name="MainPrimaryStyleBackground">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">?attr/colorPrimary</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:padding">@dimen/paddingHeader</item>
-    </style>
-
-    <style name="SecondMainLayoutStyleBackground">
+    <style name="StyleBackground">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
         <item name="android:padding">@dimen/paddingHeader</item>
-
-
-
     </style>
 
     <style name="UsualLinearLayoutStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">horizontal</item>
-
     </style>
 
 
@@ -86,9 +38,8 @@
         <item name="android:textSize">@dimen/paddingUsual</item>
         <item name="android:paddingLeft">@dimen/paddingUsual</item>
         <item name="android:paddingRight">5sp</item>
-        <item name="thumbTint">?attr/colorSurface</item>
-        <item name="trackTint">?attr/colorOnSurface</item>
-
+        <item name="thumbTint">?attr/colorOnPrimary</item>
+        <item name="trackTint">?attr/colorOnSecondary</item>
     </style>
 
 
@@ -96,10 +47,30 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:scaleType">centerInside</item>
-        <item name="android:tint">?attr/colorOnPrimary</item>
-
+        <item name="android:tint">?attr/colorPrimaryVariant</item>
     </style>
 
+    <style name="CustomMaterialButtonStyle" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <!-- Скругление углов -->
+        <item name="android:textColor">@color/YpBlack</item>
+        <item name="android:colorBackground">@color/YpWhite</item>
+        <!-- Шрифт и текст -->
+        <item name="android:textSize">@dimen/bigText</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <!-- Иконка -->
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/paddingUsual</item>
+        <item name="iconTint">@color/YpBlack</item>
+        <!-- Скругление -->
+        <item name="shapeAppearanceOverlay">@style/ButtonCustomCorners</item>
+    </style>
 
+    <style name="ButtonCustomCorners" parent="">
+        <!-- cornerSize задает радиус для всех 4 углов -->
+        <item name="cornerSize">16dp</item>
+        <!-- Можно также указать тип скругления (rounded или cut) -->
+        <item name="cornerFamily">rounded</item>
+    </style>
 
 </resources>

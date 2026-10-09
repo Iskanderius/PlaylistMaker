@@ -2,39 +2,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:id="@+id/main"
-              style="@style/MainPrimaryStyleBackground">
-
-
-
+              style="@style/StyleBackground"
+              android:background="?attr/colorBackgroundFloating"
+    >
     <TextView
+        style="@style/TextStyle"
         android:text="@string/Header"
-        style="@style/TextStyleTopic"
+        android:textColor="@color/YpWhite"
         android:layout_weight="1.5"
-        />
+        android:layout_marginTop="@dimen/layout_marginTop"
+    />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:title="Настройки"
+        app:titleTextColor="?attr/colorOnPrimary" />
 
 
-    <Button
-        style="@style/ButtonStyle"
+    <com.google.android.material.button.MaterialButton
         app:icon="@drawable/loupe"
         android:id="@+id/button1"
-        app:cornerRadius= "@dimen/buttonRadius"
         android:text="@string/search"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="5"
+        android:layout_marginStart="@dimen/marginUsual"
+        android:layout_marginEnd="@dimen/marginUsual"
+       />
 
-    <Button
-        style="@style/ButtonStyle"
-        app:icon="@drawable/media"
-        android:id="@+id/button2"
-        app:cornerRadius="@dimen/buttonRadius"
-        android:text="@string/media"
-        />
+<com.google.android.material.button.MaterialButton
+    app:icon="@drawable/media"
+    android:id="@+id/button2"
+    android:text="@string/media"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/Null"
+    android:layout_weight="5"
+    android:layout_marginStart="@dimen/marginUsual"
+    android:layout_marginEnd="@dimen/marginUsual"
+    />
 
-    <Button
-        style="@style/ButtonStyle"
-        app:icon="@drawable/setting"
-        android:id="@+id/button3"
-        app:cornerRadius="@dimen/buttonRadius"
-        android:text="@string/settings"
-        />
+<com.google.android.material.button.MaterialButton
+
+    app:icon="@drawable/setting"
+    android:id="@+id/button3"
+    android:text="@string/settings"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/Null"
+    android:layout_weight="5"
+    android:layout_marginStart="@dimen/marginUsual"
+    android:layout_marginEnd="@dimen/marginUsual"
+    />
 
 </LinearLayout>
