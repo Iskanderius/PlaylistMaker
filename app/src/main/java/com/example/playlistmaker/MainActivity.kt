@@ -1,12 +1,13 @@
 package com.example.playlistmaker
-import android.view.View
+/*import android.view.View*/
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.widget.Toast
+/*import android.widget.Toast*/
 import android.content.Intent
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,29 +21,21 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val SearchButton = findViewById<android.widget.Button>(R.id.button1)
-        val MediaButton = findViewById<android.widget.Button>(R.id.button2)
-        val SettingsButton = findViewById<android.widget.Button>(R.id.button3)
+        val searchButton = findViewById<android.widget.Button>(R.id.button1)
+        val mediaButton = findViewById<android.widget.Button>(R.id.button2)
+        val settingsButton = findViewById<android.widget.Button>(R.id.button3)
 
-        SearchButton.setOnClickListener {
-            val SearchIntent = Intent(this, SearchActivity::class.java)
-            startActivity(SearchIntent)
+        searchButton.setOnClickListener {
+            val searchIntent = Intent(this, SearchActivity::class.java)
+            startActivity(searchIntent)
         }
-        MediaButton.setOnClickListener {
-            val MediaIntent = Intent(this, MediaActivity::class.java)
-            startActivity(MediaIntent)
+        mediaButton.setOnClickListener {
+            val mediaIntent = Intent(this, MediaActivity::class.java)
+            startActivity(mediaIntent)
         }
-        SettingsButton.setOnClickListener {
-            val SettingsIntent = Intent(this, SettingsActivity::class.java)
-            startActivity(SettingsIntent)
+        settingsButton.setOnClickListener {
+            val settingsIntent = Intent(this, SettingsActivity::class.java)
+            startActivity(settingsIntent)
         }
-
-
-    //    shareButton.setOnClickListener {
-     //       // тут будет второй способ
-     //   }
-
-
-
     }
 }

@@ -1,9 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.PlaylistMaker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/YpWhite</item><!-- Фон главной активити -->
+        <item name="colorPrimaryVariant">@color/YpBlack</item><!-- Фон строки поиск активити -->
+        <item name="colorOnPrimary">@color/YPLightGray</item><!-- main PlayList maker -->
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/YpWhite</item><!-- Фон смежных активити -->
+        <item name="colorSecondaryVariant">@color/YPTextGray</item><!-- Под цвет иконок -->
+        <item name="colorOnSecondary">@color/YPTextGray</item><!-- Цвет текста в строке поиск-->
+        <item name="colorSurface">@color/YPLightGray</item>
+        <item name="colorOnSurface">@color/YPTextGray</item>
+        <!-- Status bar color. -->
+        <item name="colorOnBackground">@color/YPTextGray</item>
+        <!--  <item name="color">@color/YPTextGray</item>-->
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+          <!-- Customize your theme here. -->
+        <item name="materialButtonStyle">@style/CustomMaterialButtonStyle</item>
+        <item name="colorBackgroundFloating">@color/YpBlue</item>
+       <!-- <item name="toolbarStyle">@style/MaterialToolbarStyle</item>-->
     </style>
-
-    <style name="Theme.PlaylistMaker" parent="Base.Theme.PlaylistMaker" />
 </resources>

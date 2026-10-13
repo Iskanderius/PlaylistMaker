@@ -4,129 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings"
     tools:context=".SettingsActivity"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#3772E7"
-    android:orientation="vertical"
-    android:padding="@dimen/paddingHeader">
+    style="@style/StyleBackground"
+    android:weightSum="1"
+    >
 
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/TittleSetting"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10"
-        android:background="@color/white"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.07"
+        app:title="@string/settings"
+        app:navigationIcon="@drawable/arrow"
+        android:textSize="@dimen/bigText"
+        app:navigationIconTint="?attr/colorPrimaryVariant"
+        />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:id="@+id/backSettings">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/arrow" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:gravity="center_vertical"
-                android:text="@string/settings"
-                android:textColor="@color/black"
-                android:textSize="@dimen/bigText"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <androidx.appcompat.widget.SwitchCompat
+        android:text="@string/blackTheme"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:paddingTop="@dimen/paddingHeader">
+        android:layout_height="@dimen/Null"
+        android:scaleType="centerInside"
+        android:layout_gravity="end"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical|start"
+        android:textSize="@dimen/smallText"
+        app:thumbTint="?attr/colorOnPrimary"
+        app:trackTint="?attr/colorOnSecondary"
+        android:paddingStart="@dimen/switchPadding"
+        android:paddingEnd="@dimen/shortDistance"
+        />
 
+    <TextView
+        android:text="@string/share"
+        app:drawableEndCompat = "@drawable/share"
+        android:id="@+id/shareApp"
+        android:textSize="@dimen/smallText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical|start"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:fontFamily="@font/ys_display_medium"
+        app:drawableTint="?attr/colorSecondaryVariant"
+        android:layout_marginHorizontal="@dimen/marginUsual"
+        />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:scaleType="centerInside"
-                android:layout_gravity="end"
-                android:layout_weight="1"
-                android:text="@string/blackTheme"
-                android:gravity="center_vertical|start"
-                android:textSize="@dimen/smallText"
-                android:paddingLeft="@dimen/paddingUsual"
-                android:paddingRight="5sp"
-                />
+    <TextView
+        android:text="@string/writeMessage"
+        app:drawableEndCompat = "@drawable/man"
+        android:id="@+id/WriteToSupport"
+        android:textSize="@dimen/smallText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical|start"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:fontFamily="@font/ys_display_medium"
+        app:drawableTint="?attr/colorSecondaryVariant"
+        android:layout_marginHorizontal="@dimen/marginUsual"
+        />
 
+    <TextView
 
+        android:text="@string/readDocument"
+        app:drawableEndCompat = "@drawable/more"
+        android:id="@+id/UserContract"
+        android:textSize="@dimen/smallText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical|start"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:fontFamily="@font/ys_display_medium"
+        app:drawableTint="?attr/colorSecondaryVariant"
+        android:layout_marginHorizontal="@dimen/marginUsual"
+        />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="center_vertical|start"
-            android:text="@string/share"
-            android:textColor="@color/black"
-            android:textSize="@dimen/smallText"
-            android:paddingLeft="@dimen/paddingUsual"
-            android:paddingRight="@dimen/paddingUsual"
-            app:drawableEndCompat = "@drawable/share"
-            android:layout_weight="1"
-
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="center_vertical|start"
-            android:text="@string/writeMessage"
-            android:textColor="@color/black"
-            android:textSize="@dimen/smallText"
-            android:paddingLeft="@dimen/paddingUsual"
-            android:paddingRight="@dimen/paddingUsual"
-            app:drawableEndCompat = "@drawable/man"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="center_vertical|start"
-            android:text="@string/readDocument"
-            android:textColor="@color/black"
-            android:textSize="@dimen/smallText"
-            android:paddingLeft="@dimen/paddingUsual"
-            android:paddingRight="@dimen/paddingUsual"
-            app:drawableEndCompat = "@drawable/more"
-            android:layout_weight="1"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:background="@color/white"
-            android:orientation="horizontal">
-        </LinearLayout>
-
-
-
-
-    </LinearLayout>
 </LinearLayout>

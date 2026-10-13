@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/search"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SearchActivity">
+    tools:context=".SearchActivity"
+    style="@style/StyleBackground"
+    android:weightSum="1"
+    >
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/TittleSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.071"
+        app:title="@string/search"
+        app:navigationIcon="@drawable/arrow"
+        app:navigationIconTint="?attr/colorPrimaryVariant"
+        />
+            <EditText
+                android:id="@+id/inputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/Null"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/marginUsual"
+                android:layout_marginVertical="@dimen/shortDistance"
+                android:layout_weight="0.05"
+                android:hint="@string/input_hint"
+                android:inputType="number"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?attr/colorOnSurface"
+                android:textCursorDrawable="@color/YpBlue"
+                android:background="@drawable/rentagle"
+                android:backgroundTint="@color/YPLightGray"
+                android:drawableStart="@drawable/loupe"
+                android:drawablePadding="@dimen/shortDistance"
+                android:drawableTint ="?attr/colorOnSurface"
+                android:paddingStart="@dimen/averageDistance"
+                android:drawableEnd="@drawable/ic_menu_close_clear_cancel"
+                android:paddingEnd="@dimen/averageDistance"
+                />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+
+
