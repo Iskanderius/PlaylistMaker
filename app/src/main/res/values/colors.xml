@@ -9,5 +9,10 @@
     <color name="YpBlue">#3772E7</color>
     <color name="YpBackground">#3772E7</color>
     <color name="YpBlueLight">#9FBBF3</color>
-
+    <color name="DrawableDefault">#1A1B22</color>
+    <color name="DrawableBlack">#00000000</color>
+    <color name="DrawableWhiteTransparent">#33FFFFFF</color>
+    <color name="Green">#3DDC84</color>
+    <color name="Red">#44000000</color>
+    <color name="WhiteRGB">#FFFFFF</color>
 </resources>

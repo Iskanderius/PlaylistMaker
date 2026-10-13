@@ -5,23 +5,14 @@
               style="@style/StyleBackground"
               android:background="?attr/colorBackgroundFloating"
     >
-    <TextView
-        style="@style/TextStyle"
-        android:text="@string/Header"
-        android:textColor="@color/YpWhite"
-        android:layout_weight="1.5"
-        android:layout_marginTop="@dimen/layout_marginTop"
-    />
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        app:title="Настройки"
-        app:titleTextColor="?attr/colorOnPrimary" />
-
+        android:layout_height="@dimen/Null"
+        android:layout_weight="1.5"
+        app:title="@string/Header"
+        app:titleTextColor="@color/YpWhite"
+        />
 
     <com.google.android.material.button.MaterialButton
         app:icon="@drawable/loupe"
@@ -32,6 +23,7 @@
         android:layout_weight="5"
         android:layout_marginStart="@dimen/marginUsual"
         android:layout_marginEnd="@dimen/marginUsual"
+        app:cornerRadius="16sp"
        />
 
 <com.google.android.material.button.MaterialButton
@@ -43,6 +35,7 @@
     android:layout_weight="5"
     android:layout_marginStart="@dimen/marginUsual"
     android:layout_marginEnd="@dimen/marginUsual"
+    app:cornerRadius="16sp"
     />
 
 <com.google.android.material.button.MaterialButton
@@ -55,6 +48,7 @@
     android:layout_weight="5"
     android:layout_marginStart="@dimen/marginUsual"
     android:layout_marginEnd="@dimen/marginUsual"
+    app:cornerRadius="16sp"
     />
 
 </LinearLayout>

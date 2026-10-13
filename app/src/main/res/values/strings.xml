@@ -9,10 +9,12 @@
     <string name="readDocument" translatable="false">Пользовательское соглашение</string>
     <string name="Header">Playlist maker</string>
     <string name="input_hint">Поиск</string>
-    <string name="url1">https://practicum.yandex.ru/profile/android-developer/</string>
-    <string name="url2">https://yandex.ru/legal/practicum_offer/ru/</string>
+    <string name="urlProfile">https://practicum.yandex.ru/profile/android-developer/</string>
+    <string name="urlDocument">https://yandex.ru/legal/practicum_offer/ru/</string>
     <string name="email">egortsev92@yandex.ru</string>
-    <string name="text1">Спасибо разработчикам и разработчицам за крутое приложение!</string>
-    <string name="text2">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
-    <string name="share_url">"Поделиться ссылкой"</string>
+    <string name="textMessage">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="textTheme">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="share_url">Поделиться ссылкой</string>
+    <string name="settingIntentType">text/plain</string>
+    <string name="settingIntentWrType">mailto:</string>
 </resources>

@@ -18,5 +18,6 @@
           <!-- Customize your theme here. -->
         <item name="materialButtonStyle">@style/CustomMaterialButtonStyle</item>
         <item name="colorBackgroundFloating">@color/YpBlue</item>
+       <!-- <item name="toolbarStyle">@style/MaterialToolbarStyle</item>-->
     </style>
 </resources>

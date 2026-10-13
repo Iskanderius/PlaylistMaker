@@ -3,7 +3,6 @@
     <style name="Theme.MyApp"  parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/YpWhite</item>
         <item name="colorPrimaryVariant">@color/YpWhite</item>
@@ -15,29 +14,15 @@
         <!-- Status bar color. -->
         <item name="colorSurface">@color/YpWhite</item>
         <item name="colorOnSurface">@color/YpBlack</item>
-
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-
         <item name="android:editTextColor">@color/YpBlue</item>
         <item name="color">@color/YpBlue</item>
-
         <item name="colorBackgroundFloating">@color/YpBlack</item>
-
         <!--<item name="android:windowBackground">@color/YpBlack</item>-->
-
-
-
-
         <item name="materialButtonStyle">@style/CustomMaterialButtonStyle</item>
-
-
-
+ <!--   <item name="toolbarStyle">@style/MaterialToolbarStyle</item>-->
 
     </style>
-
-
-
-
 
 </resources>

@@ -4,82 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings"
     tools:context=".SettingsActivity"
-    style="@style/StyleBackground">
+    style="@style/StyleBackground"
+    android:weightSum="1"
+    >
 
-    <LinearLayout
-        style="@style/UsualLinearLayoutStyle"
-        android:layout_weight="10">
-
-        <LinearLayout
-            style="@style/UsualLinearLayoutStyle"
-            android:layout_weight="5"
-            android:id="@+id/backSettings">
-
-            <ImageView
-                style="@style/ImageViewStyle"
-                android:src="@drawable/arrow" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/UsualLinearLayoutStyle"
-            android:layout_weight="1">
-
-            <TextView
-                style="@style/TextStyle"
-                android:text="@string/settings"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/UsualLinearLayoutStyle"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:paddingTop="@dimen/marginUsual">
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/SwitchCompatStyle"
-            android:text="@string/blackTheme"
-            />
-
-        <TextView
-            style="@style/TextStyle"
-            android:text="@string/share"
-            app:drawableEndCompat = "@drawable/share"
-            android:layout_weight="1"
-            android:id="@+id/shareApp"
-            android:textSize="@dimen/smallText"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/TittleSetting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.07"
+        app:title="@string/settings"
+        app:navigationIcon="@drawable/arrow"
+        android:textSize="@dimen/bigText"
+        app:navigationIconTint="?attr/colorPrimaryVariant"
         />
 
-        <TextView
-            style="@style/TextStyle"
-            android:text="@string/writeMessage"
-            app:drawableEndCompat = "@drawable/man"
-            android:layout_weight="1"
-            android:id="@+id/WriteToSupport"
-            android:textSize="@dimen/smallText"
-            />
+    <androidx.appcompat.widget.SwitchCompat
+        android:text="@string/blackTheme"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:scaleType="centerInside"
+        android:layout_gravity="end"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical|start"
+        android:textSize="@dimen/smallText"
+        app:thumbTint="?attr/colorOnPrimary"
+        app:trackTint="?attr/colorOnSecondary"
+        android:paddingStart="@dimen/switchPadding"
+        android:paddingEnd="@dimen/shortDistance"
+        />
 
-        <TextView
-            style="@style/TextStyle"
-            android:text="@string/readDocument"
-            app:drawableEndCompat = "@drawable/more"
-            android:layout_weight="1"
-            android:id="@+id/UserContract"
-            android:textSize="@dimen/smallText"
-            />
+    <TextView
+        android:text="@string/share"
+        app:drawableEndCompat = "@drawable/share"
+        android:id="@+id/shareApp"
+        android:textSize="@dimen/smallText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical|start"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:fontFamily="@font/ys_display_medium"
+        app:drawableTint="?attr/colorSecondaryVariant"
+        android:layout_marginHorizontal="@dimen/marginUsual"
+        />
 
-        <LinearLayout
-            style="@style/UsualLinearLayoutStyle"
-            android:layout_height="@dimen/Null"
-            android:layout_weight="5">
-        </LinearLayout>
+    <TextView
+        android:text="@string/writeMessage"
+        app:drawableEndCompat = "@drawable/man"
+        android:id="@+id/WriteToSupport"
+        android:textSize="@dimen/smallText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical|start"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:fontFamily="@font/ys_display_medium"
+        app:drawableTint="?attr/colorSecondaryVariant"
+        android:layout_marginHorizontal="@dimen/marginUsual"
+        />
 
-    </LinearLayout>
+    <TextView
+
+        android:text="@string/readDocument"
+        app:drawableEndCompat = "@drawable/more"
+        android:id="@+id/UserContract"
+        android:textSize="@dimen/smallText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical|start"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:fontFamily="@font/ys_display_medium"
+        app:drawableTint="?attr/colorSecondaryVariant"
+        android:layout_marginHorizontal="@dimen/marginUsual"
+        />
 
 </LinearLayout>

@@ -7,10 +7,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.appbar.MaterialToolbar
 
+private lateinit var TittleSetting: MaterialToolbar
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_settings)
@@ -20,50 +25,42 @@ class SettingsActivity : AppCompatActivity() {
             insets
         }
 
-        val backSettings = findViewById<android.widget.LinearLayout>(R.id.backSettings)
         val shareApp = findViewById<android.widget.TextView>(R.id.shareApp)
-        val WriteToSupport = findViewById<android.widget.TextView>(R.id.WriteToSupport)
-        val UserContract = findViewById<android.widget.TextView>(R.id.UserContract)
+        val writeToSupport = findViewById<android.widget.TextView>(R.id.WriteToSupport)
+        val userContract = findViewById<android.widget.TextView>(R.id.UserContract)
 
-        backSettings.setOnClickListener {
+        TittleSetting = findViewById<MaterialToolbar>(R.id.TittleSetting)
+        TittleSetting.setNavigationOnClickListener{
             finish()
         }
 
 
-
         shareApp.setOnClickListener {
 
-            val message = getString(R.string.url1)
+            val message = getString(R.string.urlProfile)
             val shareIntent = Intent(Intent.ACTION_SEND)
-            shareIntent.type = "text/plain"
+            shareIntent.type = getString(R.string.settingIntentType)
             shareIntent.putExtra(Intent.EXTRA_TEXT, message)
             Intent.createChooser(shareIntent, getString(R.string.share_url))
             startActivity(shareIntent)
         }
 
-
-
-        WriteToSupport.setOnClickListener {
-            val message = getString(R.string.text1)
-            val theme = getString(R.string.text2)
-            val WriteIntent = Intent(Intent.ACTION_SENDTO)
-            WriteIntent.type = "text/plain"
-            WriteIntent.data = Uri.parse("mailto:")
-            WriteIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.email)))
-            WriteIntent.putExtra(Intent.EXTRA_TEXT, message)
-            WriteIntent.putExtra(Intent.EXTRA_SUBJECT, theme)
-            startActivity(WriteIntent)
+        writeToSupport.setOnClickListener {
+            val message = getString(R.string.textMessage)
+            val theme = getString(R.string.textTheme)
+            val writeIntent = Intent(Intent.ACTION_SENDTO)
+            writeIntent.type = getString(R.string.settingIntentType)
+            writeIntent.data = Uri.parse(getString(R.string.settingIntentWrType))
+            writeIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.email)))
+            writeIntent.putExtra(Intent.EXTRA_TEXT, message)
+            writeIntent.putExtra(Intent.EXTRA_SUBJECT, theme)
+            startActivity(writeIntent)
         }
 
-        UserContract.setOnClickListener {
-            val IntentContract = Intent(Intent.ACTION_VIEW)
-            IntentContract.data = Uri.parse(getString(R.string.url2))
-            startActivity(IntentContract)
+        userContract.setOnClickListener {
+            val intentContract = Intent(Intent.ACTION_VIEW)
+            intentContract.data = Uri.parse(getString(R.string.urlDocument))
+            startActivity(intentContract)
         }
-
-
-
-
-
     }
 }
