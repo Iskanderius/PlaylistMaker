@@ -6,8 +6,8 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingHorizontal="16sp"
-    android:paddingVertical="10sp"
+    android:paddingHorizontal="@dimen/paddingUsual"
+    android:paddingVertical="@dimen/paddingSmall"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -51,6 +51,6 @@
         android:src="@drawable/more"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

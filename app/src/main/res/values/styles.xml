@@ -94,6 +94,7 @@
         <item name="android:layout_width">8sp</item>
         <item name="android:layout_height">14sp</item>
         <item name="android:scaleType">centerCrop</item>
+        <item name="tint">?attr/colorSecondaryVariant</item>
     </style>
 
     <style name="RecyclerViewTrackName" parent="">

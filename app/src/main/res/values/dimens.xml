@@ -4,6 +4,7 @@
     <dimen name="smallText">16sp</dimen>
     <dimen name="paddingHeader">16sp</dimen>
     <dimen name="paddingUsual">16sp</dimen>
+    <dimen name="paddingSmall">10sp</dimen>
     <dimen name="marginUsual">16sp</dimen>
     <dimen name="bigRadius">16sp</dimen>
     <dimen name="smallRadius">8sp</dimen>

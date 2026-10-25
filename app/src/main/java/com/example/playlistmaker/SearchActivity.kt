@@ -16,13 +16,7 @@ import com.google.android.material.appbar.MaterialToolbar
 class SearchActivity : AppCompatActivity() {
 
     private lateinit var inputEditText: EditText
-
-    //private lateinit var searchClearIcon: ImageView
     private lateinit var TittleSearch: MaterialToolbar
-
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +76,6 @@ class SearchActivity : AppCompatActivity() {
         )
         val rvTrack = findViewById<RecyclerView>(R.id.rvTrack)
         rvTrack.adapter = trackAdapter
-
     }
 
     private var searchInput: String = AMOUNT_DEF

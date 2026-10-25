@@ -24,8 +24,6 @@ class TrackViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             .load(item.artworkUrl100)
             .placeholder(R.drawable.placeholder)
             .transform(RoundedCorners(dpToPx(2.toFloat(),itemView)))
-            .skipMemoryCache(true) // Отключаем кэш в памяти
-            .diskCacheStrategy(DiskCacheStrategy.NONE) // Отключаем кэш на диске
             .into(tvArtworkUrl100)
     }
 
