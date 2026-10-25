@@ -26,8 +26,8 @@
                 android:layout_marginVertical="@dimen/shortDistance"
                 android:layout_weight="0.05"
                 android:hint="@string/input_hint"
-                android:inputType="number"
-                android:maxLength="15"
+                android:inputType="text"
+                android:maxLength="30"
                 android:maxLines="1"
                 android:textColor="?attr/colorOnSurface"
                 android:textColorHint="?attr/colorOnSurface"
@@ -42,7 +42,15 @@
                 android:paddingEnd="@dimen/averageDistance"
                 />
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTrack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.897"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:listitem="@layout/track_item"
+        tools:itemCount="5"/>
 
 </LinearLayout>
 

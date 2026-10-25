@@ -14,4 +14,7 @@
     <dimen name="averageDistance">12sp</dimen>
     <dimen name="longDistance">16sp</dimen>
     <dimen name="switchPadding">16sp</dimen>
+    <dimen name="smallerText">11sp</dimen>
+    <dimen name="trackInfoDistance">11sp</dimen>
+    <dimen name="trackImageRadius">2sp</dimen>
 </resources>

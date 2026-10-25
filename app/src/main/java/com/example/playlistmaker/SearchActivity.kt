@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.text.Editable
 import android.view.MotionEvent
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 
 
@@ -18,6 +19,10 @@ class SearchActivity : AppCompatActivity() {
 
     //private lateinit var searchClearIcon: ImageView
     private lateinit var TittleSearch: MaterialToolbar
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,9 +69,21 @@ class SearchActivity : AppCompatActivity() {
             // логика по работе с введённым значением
         inputEditText.addTextChangedListener(simpleTextWatcher)
         inputEditText.setText(searchInput)
+
+        val trackAdapter = TrackAdapter (
+            listOf(
+                Track(    getString(R.string.trackName_1), getString(R.string.artistName_1), getString(R.string.trackTime_1),getString(R.string.artworkUrl100_1)),
+                Track(    getString(R.string.trackName_2), getString(R.string.artistName_2), getString(R.string.trackTime_2),getString(R.string.artworkUrl100_2)),
+                Track(    getString(R.string.trackName_3), getString(R.string.artistName_3), getString(R.string.trackTime_3),getString(R.string.artworkUrl100_3)),
+                Track(    getString(R.string.trackName_4), getString(R.string.artistName_4), getString(R.string.trackTime_4),getString(R.string.artworkUrl100_4)),
+                Track(    getString(R.string.trackName_5), getString(R.string.artistName_5), getString(R.string.trackTime_5),getString(R.string.artworkUrl100_5)),
+
+            )
+        )
+        val rvTrack = findViewById<RecyclerView>(R.id.rvTrack)
+        rvTrack.adapter = trackAdapter
+
     }
-
-
 
     private var searchInput: String = AMOUNT_DEF
     override fun onSaveInstanceState(outState: Bundle) {
@@ -84,7 +101,6 @@ class SearchActivity : AppCompatActivity() {
         // Вторым параметром мы передаём значение по умолчанию
         searchInput = savedInstanceState.getString(PRODUCT_AMOUNT, AMOUNT_DEF)
     }
-
 
 }
 

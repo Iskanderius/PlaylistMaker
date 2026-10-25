@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="16sp"
+    android:paddingVertical="10sp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        style="@style/RecyclerViewTitleImage"
+        android:id="@+id/tvArtworkUrl100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        style="@style/RecyclerViewTrackName"
+        android:id="@+id/tvTrackName"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintLeft_toRightOf="@+id/tvArtworkUrl100"
+        app:layout_constraintTop_toTopOf="@+id/tvArtworkUrl100"
+        app:layout_constraintBottom_toTopOf="@+id/tvArtistName"
+        android:layout_marginLeft="@dimen/shortDistance"/>
+
+    <TextView
+        style="@style/RecyclerViewTrackInfo"
+        android:id="@+id/tvArtistName"
+        app:layout_constraintLeft_toRightOf="@+id/tvArtworkUrl100"
+        app:layout_constraintTop_toBottomOf="@+id/tvTrackName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvArtworkUrl100"
+        android:layout_marginLeft="@dimen/shortDistance"/>
+
+    <TextView
+        style="@style/RecyclerViewTrackInfo"
+        android:id="@+id/tvTrackTime"
+        app:layout_constraintLeft_toRightOf="@+id/tvArtistName"
+        app:layout_constraintTop_toBottomOf="@+id/tvTrackName"
+        android:drawableLeft = "@drawable/oval"
+        app:drawableTint="?attr/colorSecondaryVariant"
+        android:drawablePadding="@dimen/trackInfoDistance"
+        android:layout_marginLeft="@dimen/trackInfoDistance"/>
+
+    <ImageView
+        style="@style/RecyclerViewChooseImage"
+        android:id="@+id/tvMore"
+        android:src="@drawable/more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
