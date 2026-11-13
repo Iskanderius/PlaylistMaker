@@ -23,7 +23,7 @@
         android:layout_weight="5"
         android:layout_marginStart="@dimen/marginUsual"
         android:layout_marginEnd="@dimen/marginUsual"
-        app:cornerRadius="16sp"
+        app:cornerRadius="@dimen/bigRadius"
        />
 
 <com.google.android.material.button.MaterialButton
@@ -35,7 +35,7 @@
     android:layout_weight="5"
     android:layout_marginStart="@dimen/marginUsual"
     android:layout_marginEnd="@dimen/marginUsual"
-    app:cornerRadius="16sp"
+    app:cornerRadius="@dimen/bigRadius"
     />
 
 <com.google.android.material.button.MaterialButton
@@ -48,7 +48,7 @@
     android:layout_weight="5"
     android:layout_marginStart="@dimen/marginUsual"
     android:layout_marginEnd="@dimen/marginUsual"
-    app:cornerRadius="16sp"
+    app:cornerRadius="@dimen/bigRadius"
     />
 
 </LinearLayout>

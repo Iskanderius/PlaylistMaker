@@ -16,7 +16,8 @@
         android:id="@+id/tvArtworkUrl100"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:shapeAppearanceOverlay="@dimen/bigRadius"/>
 
     <TextView
         style="@style/RecyclerViewTrackName"

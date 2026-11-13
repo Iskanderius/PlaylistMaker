@@ -1,10 +1,13 @@
 package com.example.playlistmaker
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
@@ -25,6 +28,7 @@ class SettingsActivity : AppCompatActivity() {
             insets
         }
 
+        val switchTheme = findViewById<androidx.appcompat.widget.SwitchCompat>(R.id.switchTheme)
         val shareApp = findViewById<android.widget.TextView>(R.id.shareApp)
         val writeToSupport = findViewById<android.widget.TextView>(R.id.WriteToSupport)
         val userContract = findViewById<android.widget.TextView>(R.id.UserContract)
@@ -34,6 +38,13 @@ class SettingsActivity : AppCompatActivity() {
             finish()
         }
 
+        val isDark = resources.configuration.uiMode  and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
+        switchTheme.isChecked = isDark
+        switchTheme.setOnCheckedChangeListener { _, isChecked ->
+            val mode = if (isChecked) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+            AppCompatDelegate.setDefaultNightMode(mode)
+            recreate()
+        }
 
         shareApp.setOnClickListener {
 
