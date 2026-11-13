@@ -23,5 +23,5 @@
     <dimen name="trackImageRadius">2dp</dimen>
     <dimen name="bigDistance">120dp</dimen>
     <dimen name="cornerRadiusBig">54dp</dimen>
-
+    <dimen name="bias">0.0</dimen>
 </resources>

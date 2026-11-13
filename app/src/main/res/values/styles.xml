@@ -96,7 +96,7 @@
     </style>
 
     <style name="RecyclerViewTrackName" parent="">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">?attr/colorPrimaryVariant</item>
         <item name="android:textSize">@dimen/smallText</item>
@@ -105,7 +105,7 @@
     </style>
 
     <style name="RecyclerViewTrackInfo" parent="">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">?attr/colorSecondaryVariant</item>
         <item name="android:textSize">@dimen/smallerText</item>
@@ -130,7 +130,7 @@
     <style name="MaterialButtonActivitySearch" parent="">
         <item name="android:textColor">?attr/colorSecondary</item>
         <item name="android:backgroundTint">?attr/colorPrimaryVariant</item>
-        <item name="cornerRadius">54sp</item>
+        <item name="cornerRadius">@dimen/cornerRadiusBig</item>
         <item name="android:textSize">@dimen/smallTextv2</item>
         <item name="android:layout_margin">@dimen/margingBig</item>
     </style>

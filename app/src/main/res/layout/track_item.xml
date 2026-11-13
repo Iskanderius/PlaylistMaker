@@ -1,57 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/rootLayout"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/rootLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     android:paddingHorizontal="@dimen/paddingUsual"
-    android:paddingVertical="@dimen/paddingSmall"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    android:paddingVertical="@dimen/paddingSmall">
 
     <ImageView
-        style="@style/RecyclerViewTitleImage"
         android:id="@+id/tvArtworkUrl100"
+        style="@style/RecyclerViewTitleImage"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:shapeAppearanceOverlay="@dimen/bigRadius"/>
+        app:layout_constraintVertical_bias="0.0"
+        app:shapeAppearanceOverlay="@dimen/bigRadius" />
 
+    <!-- Блок текста: ширина 0dp, занимает всё место между картинкой и временем -->
     <TextView
-        style="@style/RecyclerViewTrackName"
         android:id="@+id/tvTrackName"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintLeft_toRightOf="@+id/tvArtworkUrl100"
-        app:layout_constraintTop_toTopOf="@+id/tvArtworkUrl100"
-        app:layout_constraintBottom_toTopOf="@+id/tvArtistName"
-        android:layout_marginLeft="@dimen/shortDistance"/>
+        style="@style/RecyclerViewTrackName"
+        android:layout_marginStart="@dimen/shortDistance"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@id/tvArtistName"
+        app:layout_constraintEnd_toStartOf="@+id/tvMore"
+        app:layout_constraintStart_toEndOf="@id/tvArtworkUrl100"
+        app:layout_constraintTop_toTopOf="@id/tvArtworkUrl100" />
 
+    <!-- Артист: занимает всё место от картинки до времени -->
     <TextView
-        style="@style/RecyclerViewTrackInfo"
         android:id="@+id/tvArtistName"
-        app:layout_constraintLeft_toRightOf="@+id/tvArtworkUrl100"
-        app:layout_constraintTop_toBottomOf="@+id/tvTrackName"
-        app:layout_constraintBottom_toBottomOf="@+id/tvArtworkUrl100"
-        android:layout_marginLeft="@dimen/shortDistance"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constrainedWidth="true"
+        android:layout_marginStart="@dimen/shortDistance"
+        app:layout_constraintHorizontal_bias="@dimen/bias"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvTrackTime"
+        app:layout_constraintStart_toEndOf="@id/tvArtworkUrl100"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
-        style="@style/RecyclerViewTrackInfo"
         android:id="@+id/tvTrackTime"
-        app:layout_constraintLeft_toRightOf="@+id/tvArtistName"
-        app:layout_constraintTop_toBottomOf="@+id/tvTrackName"
-        android:drawableLeft = "@drawable/oval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/shortDistance"
+        android:maxLines="1"
+        app:drawableStartCompat="@drawable/oval"
         app:drawableTint="?attr/colorSecondaryVariant"
         android:drawablePadding="@dimen/trackInfoDistance"
-        android:layout_marginLeft="@dimen/trackInfoDistance"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvArtistName"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/trackInfoDistance"
+        />
+
 
     <ImageView
         style="@style/RecyclerViewChooseImage"
         android:id="@+id/tvMore"
         android:src="@drawable/more"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/tvArtworkUrl100"
+        app:layout_constraintBottom_toBottomOf="@id/tvArtworkUrl100"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

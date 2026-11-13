@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.text.Editable
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -25,6 +26,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Callback
+import java.net.URLEncoder
 
 class SearchActivity : AppCompatActivity() {
 
@@ -33,7 +35,7 @@ class SearchActivity : AppCompatActivity() {
 
     private lateinit var  mesBreakConnect : LinearLayout
     private lateinit var  mesBreakSearch: LinearLayout
-
+    private lateinit var rvTrack :RecyclerView
     private var searchInput: String = AMOUNT_DEF
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -60,8 +62,7 @@ class SearchActivity : AppCompatActivity() {
 
     private val TracksService = retrofit.create(trackApi::class.java)
 
-    private lateinit var placeholderMessage: TextView
-    private lateinit var moviesList: RecyclerView
+
     private val tracks = ArrayList<Track>()
     private val adapter = TracksAdapter()
 
@@ -79,6 +80,9 @@ class SearchActivity : AppCompatActivity() {
         TittleSearch.setNavigationOnClickListener {
             finish()
         }
+        rvTrack = findViewById<RecyclerView>(R.id.rvTrack)
+        adapter.tracks = tracks
+        rvTrack.adapter = adapter
 
         inputEditText = findViewById<EditText>(R.id.inputEditText)
         inputEditText.setOnTouchListener { v, event ->
@@ -91,6 +95,9 @@ class SearchActivity : AppCompatActivity() {
                         inputEditText.setText("")
                         val keyboardOff = inputEditText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                         keyboardOff.hideSoftInputFromWindow(inputEditText.windowToken, 0)
+                        tracks.clear()
+                        adapter.notifyDataSetChanged()
+                        rvTrack.visibility= View.GONE
                         return@setOnTouchListener true
                     }
                 }
@@ -98,9 +105,7 @@ class SearchActivity : AppCompatActivity() {
             false
         }
 
-        val rvTrack = findViewById<RecyclerView>(R.id.rvTrack)
-        adapter.tracks = tracks
-        rvTrack.adapter = adapter
+
 
         mesBreakConnect = findViewById<LinearLayout>(R.id.BreakConnect)
         mesBreakSearch = findViewById<LinearLayout>(R.id.BreakSearch)
@@ -143,6 +148,9 @@ class SearchActivity : AppCompatActivity() {
     private fun commonSearch() {
 
         if (inputEditText.text.isNotEmpty()) {
+
+
+
             TracksService.findTrack(inputEditText.text.toString())
                 .enqueue(object : Callback<TrackResponse> {
                     override fun onResponse(
@@ -161,6 +169,7 @@ class SearchActivity : AppCompatActivity() {
                                 adapter.notifyDataSetChanged()
                                 mesBreakConnect.visibility= View.GONE
                                 mesBreakSearch.visibility= View.GONE
+                                rvTrack.visibility= View.VISIBLE
                             }
                             if (tracks.isEmpty()) {
                                 adapter.notifyDataSetChanged()
