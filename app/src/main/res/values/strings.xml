@@ -18,6 +18,10 @@
     <string name="settingIntentType">text/plain</string>
     <string name="settingIntentWrType">mailto:</string>
 
+    <string name="BreakSearch">Ничего не нашлось</string>
+    <string name="BreakConnect">Проблемы со связью \n\n Загрузка не удалась. Проверьте подключение к интернету</string>
+    <string name="Update">Обновить</string>
+
     <string name="trackName_1">Smells Like Teen Spirit</string>
     <string name="artistName_1">Nirvana</string>
     <string name="trackTime_1">5:01</string>

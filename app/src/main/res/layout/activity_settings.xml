@@ -20,6 +20,7 @@
         />
 
     <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchTheme"
         android:text="@string/blackTheme"
         android:layout_width="match_parent"
         android:layout_height="@dimen/Null"

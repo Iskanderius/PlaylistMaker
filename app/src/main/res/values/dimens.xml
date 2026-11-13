@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="bigText">22sp</dimen>
+    <dimen name="usualText">19sp</dimen>
     <dimen name="smallText">16sp</dimen>
-    <dimen name="paddingHeader">16sp</dimen>
-    <dimen name="paddingUsual">16sp</dimen>
-    <dimen name="paddingSmall">10sp</dimen>
-    <dimen name="marginUsual">16sp</dimen>
-    <dimen name="bigRadius">16sp</dimen>
-    <dimen name="smallRadius">8sp</dimen>
-    <dimen name="marginTop">14sp</dimen>
-    <dimen name="layout_marginTop">10sp</dimen>
-    <dimen name="Null">0dp</dimen>
-    <dimen name="shortDistance">8sp</dimen>
-    <dimen name="averageDistance">12sp</dimen>
-    <dimen name="longDistance">16sp</dimen>
-    <dimen name="switchPadding">16sp</dimen>
+    <dimen name="smallTextv2">14sp</dimen>
     <dimen name="smallerText">11sp</dimen>
-    <dimen name="trackInfoDistance">11sp</dimen>
-    <dimen name="trackImageRadius">2sp</dimen>
+    <dimen name="paddingHeader">16dp</dimen>
+    <dimen name="paddingUsual">16dp</dimen>
+    <dimen name="paddingSmall">10dp</dimen>
+    <dimen name="margingBig">24dp</dimen>
+    <dimen name="marginUsual">16dp</dimen>
+    <dimen name="bigRadius">16dp</dimen>
+    <dimen name="smallRadius">8dp</dimen>
+    <dimen name="marginTop">14dp</dimen>
+    <dimen name="layout_marginTop">10dp</dimen>
+    <dimen name="Null">0dp</dimen>
+    <dimen name="shortDistance">8dp</dimen>
+    <dimen name="averageDistance">12dp</dimen>
+    <dimen name="longDistance">16dp</dimen>
+    <dimen name="switchPadding">16dp</dimen>
+    <dimen name="trackInfoDistance">11dp</dimen>
+    <dimen name="trackImageRadius">2dp</dimen>
+    <dimen name="bigDistance">120dp</dimen>
+    <dimen name="cornerRadiusBig">54dp</dimen>
+    <dimen name="bias">0.0</dimen>
 </resources>

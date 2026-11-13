@@ -5,8 +5,7 @@
     android:id="@+id/search"
     tools:context=".SearchActivity"
     style="@style/StyleBackground"
-    android:weightSum="1"
-    >
+    android:weightSum="1">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/TittleSearch"
@@ -15,42 +14,141 @@
         android:layout_weight="0.071"
         app:title="@string/search"
         app:navigationIcon="@drawable/arrow"
-        app:navigationIconTint="?attr/colorPrimaryVariant"
-        />
-            <EditText
-                android:id="@+id/inputEditText"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/Null"
-                android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="@dimen/marginUsual"
-                android:layout_marginVertical="@dimen/shortDistance"
-                android:layout_weight="0.05"
-                android:hint="@string/input_hint"
-                android:inputType="text"
-                android:maxLength="30"
-                android:maxLines="1"
-                android:textColor="?attr/colorOnSurface"
-                android:textColorHint="?attr/colorOnSurface"
-                android:textCursorDrawable="@color/YpBlue"
-                android:background="@drawable/rentagle"
-                android:backgroundTint="@color/YPLightGray"
-                android:drawableStart="@drawable/loupe"
-                android:drawablePadding="@dimen/shortDistance"
-                android:drawableTint ="?attr/colorOnSurface"
-                android:paddingStart="@dimen/averageDistance"
-                android:drawableEnd="@drawable/ic_menu_close_clear_cancel"
-                android:paddingEnd="@dimen/averageDistance"
-                />
+        app:navigationIconTint="?attr/colorPrimaryVariant"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTrack"
+    <EditText
+        android:id="@+id/inputEditText"
         android:layout_width="match_parent"
         android:layout_height="@dimen/Null"
-        android:layout_weight="0.897"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
-        tools:listitem="@layout/track_item"
-        tools:itemCount="5"/>
+        android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="@dimen/marginUsual"
+        android:layout_marginVertical="@dimen/shortDistance"
+        android:layout_weight="0.05"
+        android:hint="@string/input_hint"
+        android:inputType="text"
+        android:maxLength="30"
+        android:maxLines="1"
+        android:textColor="@color/YpBlack"
+        android:textColorHint="?attr/colorOnSurface"
+        android:textCursorDrawable="@color/YpBlue"
+        android:background="@drawable/rentagle"
+        android:backgroundTint="@color/YPLightGray"
+        android:drawableStart="@drawable/loupe"
+        android:drawablePadding="@dimen/shortDistance"
+        android:drawableTint ="?attr/colorOnSurface"
+        android:paddingStart="@dimen/averageDistance"
+        android:drawableEnd="@drawable/ic_menu_close_clear_cancel"
+        android:paddingEnd="@dimen/averageDistance"
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.88"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTrack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            tools:listitem="@layout/track_item"
+            tools:itemCount="5"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            style="@style/LinearLayoutActivitySearch"
+            android:id="@+id/BreakSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/breaksearch"
+                />
+            <TextView
+                style="@style/TextViewtActivitySearch"
+                android:text="@string/BreakSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutActivitySearch"
+            android:id="@+id/BreakConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/bigDistance"
+                android:layout_height="@dimen/bigDistance"
+                android:scaleType="centerCrop"
+                android:src="@drawable/breakconnect"
+                />
+
+            <TextView
+                style="@style/TextViewtActivitySearch"
+                android:text="@string/BreakConnect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/MaterialButtonActivitySearch"
+                android:id="@+id/Update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Update"
+                />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </LinearLayout>
 
