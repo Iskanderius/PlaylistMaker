@@ -2,6 +2,7 @@ package com.example.playlistmaker
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextWatcher
 import android.widget.EditText
@@ -18,9 +19,13 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -28,14 +33,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Callback
 import java.net.URLEncoder
 
+
 class SearchActivity : AppCompatActivity() {
 
     private lateinit var inputEditText: EditText
     private lateinit var TittleSearch: MaterialToolbar
+    private lateinit var clearHistiry: MaterialButton
 
     private lateinit var  mesBreakConnect : LinearLayout
     private lateinit var  mesBreakSearch: LinearLayout
     private lateinit var rvTrack :RecyclerView
+    private lateinit var rvTrackHistory :RecyclerView
+    private lateinit var  searchBlock: ConstraintLayout
+    private lateinit var  historyBlock: LinearLayout
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var searchHistoryHelper: SearchHistory
     private var searchInput: String = AMOUNT_DEF
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -45,6 +57,8 @@ class SearchActivity : AppCompatActivity() {
     companion object {
         const val PRODUCT_AMOUNT = "PRODUCT_AMOUNT"
         const val AMOUNT_DEF = ""
+        const val HISTORY_TRACKS_KEY = "history_tracks"  // ключ для списка треков
+        const val MAX_HISTORY_SIZE = 10  // максимум треков в истории
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -62,9 +76,38 @@ class SearchActivity : AppCompatActivity() {
 
     private val TracksService = retrofit.create(trackApi::class.java)
 
-
     private val tracks = ArrayList<Track>()
-    private val adapter = TracksAdapter()
+    private val adapter = TracksAdapter { selectedTrack ->
+        addTrackToHistory(selectedTrack) // Сохраняем только выбранный трек
+    }
+    private var tracksHistory = ArrayList<Track>()
+ /*   private val adapterHistoryList = TracksAdapter { selectedTrack ->
+        val updatedList = searchHistoryHelper.addTrack(tracksHistory, selectedTrack)
+        tracksHistory.clear()
+        tracksHistory.addAll(updatedList)
+        searchHistoryHelper.saveHistory(tracksHistory)
+        adapterHistoryList.refresh()
+    }
+*/
+    private lateinit var adapterHistoryList: TracksAdapter
+
+    private fun loadHistoryFromPreferences() {
+        val loadedList = searchHistoryHelper.loadHistory()
+        tracksHistory.clear()
+        tracksHistory.addAll(loadedList)
+        adapterHistoryList.tracks = tracksHistory
+        adapterHistoryList.refresh()
+
+    }
+
+    private fun addTrackToHistory(track: Track) {
+        val updatedList = searchHistoryHelper.addTrack(tracksHistory, track)
+        tracksHistory.clear()
+        tracksHistory.addAll(updatedList)
+        searchHistoryHelper.saveHistory(tracksHistory)
+        adapterHistoryList.refresh()
+
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,9 +123,28 @@ class SearchActivity : AppCompatActivity() {
         TittleSearch.setNavigationOnClickListener {
             finish()
         }
+
         rvTrack = findViewById<RecyclerView>(R.id.rvTrack)
         adapter.tracks = tracks
         rvTrack.adapter = adapter
+
+        rvTrackHistory = findViewById<RecyclerView>(R.id.historyList)
+        adapterHistoryList = TracksAdapter()
+        adapterHistoryList.tracks = tracksHistory
+        rvTrackHistory.adapter = adapterHistoryList
+
+        adapterHistoryList.clickListener = { selectedTrack ->
+            val updatedList = searchHistoryHelper.addTrack(tracksHistory, selectedTrack)
+            tracksHistory.clear()
+            tracksHistory.addAll(updatedList)
+            searchHistoryHelper.saveHistory(tracksHistory)
+            adapterHistoryList.refresh()
+        }
+
+        sharedPreferences  = getSharedPreferences("history_tracks", MODE_PRIVATE)
+        searchHistoryHelper = SearchHistory(sharedPreferences)
+
+        loadHistoryFromPreferences()
 
         inputEditText = findViewById<EditText>(R.id.inputEditText)
         inputEditText.setOnTouchListener { v, event ->
@@ -98,6 +160,7 @@ class SearchActivity : AppCompatActivity() {
                         tracks.clear()
                         adapter.notifyDataSetChanged()
                         rvTrack.visibility= View.GONE
+                        showHistory(isTextEmpty = true, isInFocus = inputEditText.hasFocus())
                         return@setOnTouchListener true
                     }
                 }
@@ -105,12 +168,12 @@ class SearchActivity : AppCompatActivity() {
             false
         }
 
-
-
         mesBreakConnect = findViewById<LinearLayout>(R.id.BreakConnect)
         mesBreakSearch = findViewById<LinearLayout>(R.id.BreakSearch)
         val buttonUpdate = findViewById<MaterialButton>(R.id.Update)
-
+        searchBlock = findViewById<ConstraintLayout>(R.id.searchBlock)
+        historyBlock= findViewById<LinearLayout>(R.id.historyBlock)
+        clearHistiry= findViewById<MaterialButton>(R.id.clearHistiry)
         inputEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 commonSearch()
@@ -122,35 +185,38 @@ class SearchActivity : AppCompatActivity() {
             commonSearch()
         }
 
+         clearHistiry.setOnClickListener {
+            tracksHistory.clear()
+            adapterHistoryList.notifyDataSetChanged()
+            searchHistoryHelper.saveHistory(emptyList())
+            showHistory(isTextEmpty = true, isInFocus = inputEditText.hasFocus())
+         }
+
         val simpleTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 searchInput = s.toString()
+                showHistory(isTextEmpty = s.isNullOrEmpty(), isInFocus = inputEditText.hasFocus())
                 if (s.isNullOrEmpty()) {
                     inputEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.loupe, 0, 0, 0)
                 } else {
-                    inputEditText.setCompoundDrawablesWithIntrinsicBounds(
-                        R.drawable.loupe,
-                        0,
-                        R.drawable.ic_menu_close_clear_cancel,
-                        0
-                    )
+                    inputEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.loupe, 0, R.drawable.ic_menu_close_clear_cancel, 0)
                 }
             }
-
             override fun afterTextChanged(s: Editable?) {}
         }
         // логика по работе с введённым значением
         inputEditText.addTextChangedListener(simpleTextWatcher)
         inputEditText.setText(searchInput)
+
+        inputEditText.setOnFocusChangeListener { view, hasFocus ->
+            showHistory(isTextEmpty = inputEditText.text.isEmpty(), isInFocus = hasFocus)
+        }
     }
 
     private fun commonSearch() {
 
         if (inputEditText.text.isNotEmpty()) {
-
-
-
             TracksService.findTrack(inputEditText.text.toString())
                 .enqueue(object : Callback<TrackResponse> {
                     override fun onResponse(
@@ -164,25 +230,26 @@ class SearchActivity : AppCompatActivity() {
                                 val results = response.body()?.results
                                 if (results != null) {
                                     tracks.addAll(results)
-                                    adapter.notifyDataSetChanged()
+                                    //adapter.notifyDataSetChanged()
                                 }
-                                adapter.notifyDataSetChanged()
+                                //adapter.notifyDataSetChanged()
                                 mesBreakConnect.visibility= View.GONE
                                 mesBreakSearch.visibility= View.GONE
                                 rvTrack.visibility= View.VISIBLE
                             }
                             if (tracks.isEmpty()) {
-                                adapter.notifyDataSetChanged()
+                                //adapter.notifyDataSetChanged()
                                 mesBreakConnect.visibility= View.GONE
                                 mesBreakSearch.visibility= View.VISIBLE
                             }
                         } else {
                             tracks.clear()
-                            adapter.notifyDataSetChanged()
+                            //adapter.notifyDataSetChanged()
                             mesBreakConnect.visibility= View.VISIBLE
                             mesBreakSearch.visibility= View.GONE
 
                         }
+                        adapter.notifyDataSetChanged()
                     }
                     override fun onFailure(call: Call<TrackResponse>, t: Throwable) {
                         tracks.clear()
@@ -190,10 +257,24 @@ class SearchActivity : AppCompatActivity() {
                         mesBreakConnect.visibility= View.VISIBLE
                         mesBreakSearch.visibility= View.GONE
                     }
-
                 })
         }
-
     }
 
+    fun showHistory(isTextEmpty: Boolean, isInFocus: Boolean) {
+
+        val historyMode = isTextEmpty && isInFocus && !tracksHistory.isEmpty()
+            historyBlock.visibility = if (historyMode)  View.VISIBLE else View.GONE
+            searchBlock.visibility  = if (!historyMode) View.VISIBLE else View.GONE
+    }
+
+  /*  private fun setupHistoryAdapterClickHandler() {
+        adapterHistoryList.onTrackClick = { selectedTrack ->
+            val updatedList = searchHistoryHelper.addTrack(tracksHistory, selectedTrack)
+            tracksHistory.clear()
+            tracksHistory.addAll(updatedList)
+            searchHistoryHelper.saveHistory(tracksHistory)
+            adapterHistoryList.refresh()
+        }}
+*/
 }

@@ -11,12 +11,15 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class TrackViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class TrackViewHolder(itemView: View, private val onTrackClick: (Track) -> Unit): RecyclerView.ViewHolder(itemView) {
 
     private val tvArtworkUrl100: ImageView = itemView.findViewById(R.id.tvArtworkUrl100)
     private val tvArtistName: TextView = itemView.findViewById(R.id.tvArtistName)
     private val tvTrackTime: TextView = itemView.findViewById(R.id.tvTrackTime)
     private val tvTrackName: TextView = itemView.findViewById(R.id.tvTrackName)
+
+
+
 
     fun bind(item: Track) {
         tvArtistName.text = item.artistName
@@ -35,6 +38,10 @@ class TrackViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             .placeholder(R.drawable.placeholder)
             .transform(RoundedCorners(dpToPx(2.toFloat(),itemView)))
             .into(tvArtworkUrl100)
+        itemView.findViewById<TextView>(R.id.tvTrackName).text = item.trackName
+        itemView.setOnClickListener {
+            onTrackClick(item) // вызываем обработчик с данными трека
+        }
     }
 
     fun dpToPx(dp: Float, context: View): Int {
@@ -43,5 +50,9 @@ class TrackViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             dp,
             context.resources.displayMetrics).toInt()
     }
+
+
+
+
 }
 

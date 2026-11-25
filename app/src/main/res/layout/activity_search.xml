@@ -48,6 +48,8 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchBlock"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="@dimen/Null"
         android:layout_weight="0.88"
@@ -119,37 +121,42 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout android:id="@+id/historyBlock"
 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Null"
+        android:layout_weight="0.45"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        >
 
+        <TextView
+            style="@style/TextViewtActivitySearch"
+            android:text="@string/titleHistoryBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/historyList"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Null"
+            android:layout_weight="0.1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            tools:listitem="@layout/track_item"
+            tools:itemCount="10"
+            app:layout_constraintTop_toTopOf="parent"/>
 
+        <com.google.android.material.button.MaterialButton
+            style="@style/MaterialButtonActivitySearch"
+            android:id="@+id/clearHistiry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonClearHistory"
+            />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </LinearLayout>
 </LinearLayout>
 
 
