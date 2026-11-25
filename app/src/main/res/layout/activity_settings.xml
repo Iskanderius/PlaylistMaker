@@ -19,8 +19,8 @@
         app:navigationIconTint="?attr/colorPrimaryVariant"
         />
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switchTheme"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/themeSwitcher"
         android:text="@string/blackTheme"
         android:layout_width="match_parent"
         android:layout_height="@dimen/Null"
@@ -80,5 +80,8 @@
         app:drawableTint="?attr/colorSecondaryVariant"
         android:layout_marginHorizontal="@dimen/marginUsual"
         />
+
+
+
 
 </LinearLayout>
