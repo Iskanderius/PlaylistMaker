@@ -6,13 +6,11 @@ import com.google.gson.Gson
 // Используем константы из SearchActivity, чтобы не дублировать их
 class SearchHistory(private val sharedPreferences: SharedPreferences) {
 
+    private val gson = Gson()
     fun loadHistory(): List<Track> {
         // Берем ключ из SearchActivity.Companion
         val jsonString = sharedPreferences.getString(SearchActivity.HISTORY_TRACKS_KEY, null)
-
         return if (jsonString != null) {
-            val gson = Gson()
-            // Парсим JSON в список треков
             gson.fromJson(jsonString, Array<Track>::class.java).toList()
         } else {
             emptyList()
@@ -20,9 +18,7 @@ class SearchHistory(private val sharedPreferences: SharedPreferences) {
     }
 
     fun saveHistory(tracks: List<Track>) {
-        val gson = Gson()
         val jsonString = gson.toJson(tracks)
-
         sharedPreferences.edit()
             .putString(SearchActivity.HISTORY_TRACKS_KEY, jsonString)
             .apply()

@@ -81,24 +81,32 @@ class SearchActivity : AppCompatActivity() {
         addTrackToHistory(selectedTrack) // Сохраняем только выбранный трек
     }
     private var tracksHistory = ArrayList<Track>()
-    private val adapterHistoryList = TracksAdapter { selectedTrack ->
-        //Toast.makeText(this, "Выбран трек: ${selectedTrack.trackName}", Toast.LENGTH_SHORT).show()
+ /*   private val adapterHistoryList = TracksAdapter { selectedTrack ->
+        val updatedList = searchHistoryHelper.addTrack(tracksHistory, selectedTrack)
+        tracksHistory.clear()
+        tracksHistory.addAll(updatedList)
+        searchHistoryHelper.saveHistory(tracksHistory)
+        adapterHistoryList.refresh()
     }
+*/
+    private lateinit var adapterHistoryList: TracksAdapter
 
     private fun loadHistoryFromPreferences() {
         val loadedList = searchHistoryHelper.loadHistory()
         tracksHistory.clear()
         tracksHistory.addAll(loadedList)
         adapterHistoryList.tracks = tracksHistory
-        adapterHistoryList.notifyDataSetChanged()
+        adapterHistoryList.refresh()
+
     }
 
     private fun addTrackToHistory(track: Track) {
         val updatedList = searchHistoryHelper.addTrack(tracksHistory, track)
         tracksHistory.clear()
         tracksHistory.addAll(updatedList)
-        adapterHistoryList.notifyDataSetChanged()
         searchHistoryHelper.saveHistory(tracksHistory)
+        adapterHistoryList.refresh()
+
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -121,10 +129,21 @@ class SearchActivity : AppCompatActivity() {
         rvTrack.adapter = adapter
 
         rvTrackHistory = findViewById<RecyclerView>(R.id.historyList)
+        adapterHistoryList = TracksAdapter()
         adapterHistoryList.tracks = tracksHistory
-        rvTrackHistory.adapter = adapterHistoryList // без повторного создания адаптера
+        rvTrackHistory.adapter = adapterHistoryList
+
+        adapterHistoryList.clickListener = { selectedTrack ->
+            val updatedList = searchHistoryHelper.addTrack(tracksHistory, selectedTrack)
+            tracksHistory.clear()
+            tracksHistory.addAll(updatedList)
+            searchHistoryHelper.saveHistory(tracksHistory)
+            adapterHistoryList.refresh()
+        }
+
         sharedPreferences  = getSharedPreferences("history_tracks", MODE_PRIVATE)
         searchHistoryHelper = SearchHistory(sharedPreferences)
+
         loadHistoryFromPreferences()
 
         inputEditText = findViewById<EditText>(R.id.inputEditText)
@@ -141,6 +160,7 @@ class SearchActivity : AppCompatActivity() {
                         tracks.clear()
                         adapter.notifyDataSetChanged()
                         rvTrack.visibility= View.GONE
+                        showHistory(isTextEmpty = true, isInFocus = inputEditText.hasFocus())
                         return@setOnTouchListener true
                     }
                 }
@@ -169,26 +189,18 @@ class SearchActivity : AppCompatActivity() {
             tracksHistory.clear()
             adapterHistoryList.notifyDataSetChanged()
             searchHistoryHelper.saveHistory(emptyList())
-            historyBlock.visibility = View.GONE
+            showHistory(isTextEmpty = true, isInFocus = inputEditText.hasFocus())
          }
 
         val simpleTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 searchInput = s.toString()
+                showHistory(isTextEmpty = s.isNullOrEmpty(), isInFocus = inputEditText.hasFocus())
                 if (s.isNullOrEmpty()) {
                     inputEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.loupe, 0, 0, 0)
-                    if ((inputEditText.hasFocus()) && !tracks.isEmpty()) {
-                        historyBlock.visibility = View.VISIBLE
-                        searchBlock.visibility = View.GONE
-                    } else {
-                        historyBlock.visibility = View.GONE
-                        searchBlock.visibility = View.VISIBLE
-                    }
                 } else {
                     inputEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.loupe, 0, R.drawable.ic_menu_close_clear_cancel, 0)
-                        historyBlock.visibility = View.GONE
-                        searchBlock.visibility = View.VISIBLE
                 }
             }
             override fun afterTextChanged(s: Editable?) {}
@@ -198,10 +210,7 @@ class SearchActivity : AppCompatActivity() {
         inputEditText.setText(searchInput)
 
         inputEditText.setOnFocusChangeListener { view, hasFocus ->
-            loadHistoryFromPreferences()
-            var bbb = tracks.isEmpty()
-            historyBlock.visibility = if (hasFocus && inputEditText.text.isEmpty() && (!tracksHistory.isEmpty())) View.VISIBLE else View.GONE
-            searchBlock.visibility = if (historyBlock.visibility == View.GONE) View.VISIBLE else View.GONE
+            showHistory(isTextEmpty = inputEditText.text.isEmpty(), isInFocus = hasFocus)
         }
     }
 
@@ -251,4 +260,21 @@ class SearchActivity : AppCompatActivity() {
                 })
         }
     }
+
+    fun showHistory(isTextEmpty: Boolean, isInFocus: Boolean) {
+
+        val historyMode = isTextEmpty && isInFocus && !tracksHistory.isEmpty()
+            historyBlock.visibility = if (historyMode)  View.VISIBLE else View.GONE
+            searchBlock.visibility  = if (!historyMode) View.VISIBLE else View.GONE
+    }
+
+  /*  private fun setupHistoryAdapterClickHandler() {
+        adapterHistoryList.onTrackClick = { selectedTrack ->
+            val updatedList = searchHistoryHelper.addTrack(tracksHistory, selectedTrack)
+            tracksHistory.clear()
+            tracksHistory.addAll(updatedList)
+            searchHistoryHelper.saveHistory(tracksHistory)
+            adapterHistoryList.refresh()
+        }}
+*/
 }
